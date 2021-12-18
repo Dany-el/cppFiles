@@ -27,7 +27,9 @@ int main(){
     
     Point* tmp = new Point(5,10);
     tmp->print();
-
+    delete tmp;
+    tmp = new Point(6,12);
+    tmp->print();
     delete tmp;
 
     return 0;
