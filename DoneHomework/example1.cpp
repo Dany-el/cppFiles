@@ -15,6 +15,11 @@ using std::cout,std::cin,std::string;
 int main(){
 
     cout<<"hello world\n";
+    cout<<"And happy new year\n";
+    string s = "Happy New Year my dear son\n";
+    cout<<s;
+    s.replace(0,5,"Hello");
+    cout<<s;
 
     return 0;
 }
