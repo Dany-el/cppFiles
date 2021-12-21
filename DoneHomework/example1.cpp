@@ -20,6 +20,6 @@ int main(){
     cout<<s;
     s.replace(0,5,"Hello");
     cout<<s;
-
+    
     return 0;
 }
