@@ -1,16 +1,17 @@
 #include "Room.h"
 #include <iostream>
-#include <cstring>
+#include <string>
 
 using std::cout;
 using std::cin;
 using std::string;
 
 // Аксессоры
+// ----------------------------------------------
 // Геттеры
 
 // Имя
-char* Room::getName()
+string Room::getName()
 {
 	return name;
 }
@@ -34,17 +35,13 @@ bool Room::getGlue()
 {
 	return glue;
 }
-
+// ----------------------------------------------
 // Сеттеры
 
 // Имя
-void Room::setName(const char* p_name)
+void Room::setName(const string p_name)
 {
-	if (name != nullptr) {
-		delete name;
-	}
-	name = new char[strlen(p_name) + 1];
-	strcpy(name, p_name);
+	name = p_name;
 }
 // Высота
 void Room::setHeight(int p_height)
@@ -66,12 +63,13 @@ void Room::setGlue(bool p_glue)
 {
 	glue = p_glue;
 }
+// ----------------------------------------------
 
 // Инициализация
 // Конструктор по умолчанию
 Room::Room()
 {
-	name = nullptr;
+	name = " ";
 	height = 0;
 	width = 0;
 	length = 0;
@@ -90,19 +88,16 @@ Room::Room()
 @param p_glue	- поклейка обоев
 
 */ 
-Room::Room(const char* p_name, int p_height, int p_width, int p_length, bool p_glue)
+Room::Room(const string p_name, int p_height, int p_width, int p_length, bool p_glue)
 {
 	// Если название не было пустым
 	// То есть имело до этого какое-либо значение 
-	if (&name != nullptr) {
-		// Удаляем
-		delete[] name;
-	}
+	name = p_name;
 	// Если массив пуст
 	// Создаем новый с длиной p_name + 1
-	name = new char[strlen(p_name) + 1];
+	// name = new string(p_name);
 	// Записываем новое название комнаты
-	strcpy(name, p_name);
+	// strcpy(name, p_name);
 	// Присваивание новых значений в переменные
 	// Высота
 	height = p_height;
@@ -123,18 +118,14 @@ void Room::Input()
 	// ВВОД НАЗВАНИЯ КОМНАТЫ
 	cout << "Name of room: ";
 	// Временная переменная с название комнаты
-	char p_name[100];
-	cin.getline(p_name, 100);
+	// char p_name[100];
+	// cin.getline(p_name, 100);
 	// Если название не было пустым
 	// То есть имело до этого какое-либо значение 
-	if (&name != nullptr) {
-		// Удаляем
-		delete[] name;
-	}
+	
 	// Если массив пуст
 	// Создаем новый с длиной p_name + 1
-	name = new char[strlen(p_name) + 1];
-	strcpy(name, p_name);
+	cin >> name;
 	// Ввод высоты
 	cout << "Height of room: ";
 	cin >> height;
@@ -185,7 +176,7 @@ void Room::Print()
 // Деструктор 
 Room::~Room()
 {
-	delete name;
+	
 }
 
 
