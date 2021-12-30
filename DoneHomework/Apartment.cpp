@@ -35,7 +35,7 @@ void Apartment::setRoom_amount(int p_room_amount)
 // Инициализируем
 Apartment::Apartment()
 {
-	room_arr = new Room[1];
+	room_arr = nullptr;
 	room_amount = 0;
 }
 
@@ -52,6 +52,9 @@ void Apartment::Input()
 	cout << "\nAmount of room: ";
 	cin >> room_amount;
 	cout << '\n';
+	// Создаем массив для ввода информации о комнатах
+	delete[] room_arr;
+	room_arr = new Room[room_amount];
 	// Данные о комнатах
 	for (int i = 0; i < room_amount; i++)
 	{
