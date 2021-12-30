@@ -1,18 +1,21 @@
 #include "Roll.h"
 #include <iostream>
-#include <cstring>
+#include <string>
 
 using std::cout;
 using std::cin;
+using std::string;
 
 // Аксессоры
+// ----------------------------------------------
 // Геттеры
 
 // Имя
-char* Roll::getName()
+string Roll::getName()
 {
 	return name;
 }
+
 // Длина
 int Roll::getLength()
 {
@@ -30,14 +33,11 @@ double Roll::getPrice()
 }
 
 // Сеттеры
+// ----------------------------------------------
 // Имя
-void Roll::setName(const char* p_name)
+void Roll::setName(const string p_name)
 {
-	if (&name != nullptr) {
-		delete name;
-	}
-	name = new char[strlen(p_name) + 1];
-	strcpy(name, p_name);
+	name = p_name;
 }
 // Длина
 void Roll::setLength(int p_length)
@@ -58,7 +58,7 @@ void Roll::setPrice(int p_price)
 // Инициализация по умолчанию
 Roll::Roll()
 {
-	name = nullptr;
+	name = " ";
 	length = 0;
 	width = 0;
 	price = 0;
@@ -72,19 +72,11 @@ Roll::Roll()
 @param p_length - длина рулона
 @param p_price  - цена рулона
 */
-Roll::Roll(const char* p_name, int p_length, int p_width, double p_price)
+Roll::Roll(const string p_name, int p_length, int p_width, double p_price)
 {
 	// Если название не было пустым
-	// То есть имело до этого какое-либо значение 
-	if (&name != nullptr) {
-		// Удаляем
-		delete[] name;
-	}
-	// Если массив пуст
-	// Создаем новый с длиной p_name + 1
-	name = new char[strlen(p_name) + 1];
 	// Записываем новое название рулона
-	strcpy(name, p_name);
+	name = p_name;
 	// Длина
 	length = p_length;
 	// Ширина
@@ -96,21 +88,9 @@ Roll::Roll(const char* p_name, int p_length, int p_width, double p_price)
 // Ввод с клавиатуры значений
 void Roll::Input()
 {
-	cout << "Name of roll: ";
-	// Временная переменная с названием рулона
-	char p_name[100];
-	cin.getline(p_name, 100);
-	// Если название не было пустым
-	// То есть имело до этого какое-либо значение 
-	if (&name != nullptr) {
-		// Удаляем
-		delete[] name;
-	}
-	// Если массив пуст
-	// Создаем новый с длиной p_name + 1
-	name = new char[strlen(p_name) + 1];
 	// Записываем новое название рулона
-	strcpy(name, p_name);
+	cout << "Name of roll: ";
+	cin >> name;
 	// Ввод длины
 	cout << "Length of roll: ";
 	cin >> length;
@@ -136,5 +116,5 @@ void Roll::Print()
 // Деструктор
 Roll::~Roll()
 {
-	delete[] name;
+
 }
