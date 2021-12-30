@@ -1,1 +1,0 @@
-g++ -Wall -Wextra -Werror -O Apartment.cpp Roll.cpp Room.cpp Main.cpp -o Main
