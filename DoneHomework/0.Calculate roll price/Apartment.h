@@ -1,5 +1,6 @@
 #pragma once
 #include "Room.h"
+#include "Roll.h"
 class Apartment
 {
 	// Массив комнаты
@@ -15,6 +16,7 @@ public:
 
 	Apartment();
 	Apartment(int p_room_amount);
+	void Print_price();
 	void Input();
 	void Print();
 	~Apartment();
