@@ -74,7 +74,6 @@ Roll::Roll()
 */
 Roll::Roll(const string p_name, int p_length, int p_width, double p_price)
 {
-	// Если название не было пустым
 	// Записываем новое название рулона
 	name = p_name;
 	// Длина
@@ -88,7 +87,7 @@ Roll::Roll(const string p_name, int p_length, int p_width, double p_price)
 // Ввод с клавиатуры значений
 void Roll::Input()
 {
-	// Записываем новое название рулона
+	// Записываем название рулона
 	cout << "Name of roll: ";
 	cin >> name;
 	// Ввод длины
