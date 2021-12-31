@@ -90,15 +90,9 @@ Room::Room()
 */ 
 Room::Room(const string p_name, int p_height, int p_width, int p_length, bool p_glue)
 {
-	// Если название не было пустым
-	// То есть имело до этого какое-либо значение 
-	name = p_name;
-	// Если массив пуст
-	// Создаем новый с длиной p_name + 1
-	// name = new string(p_name);
-	// Записываем новое название комнаты
-	// strcpy(name, p_name);
 	// Присваивание новых значений в переменные
+	// Название комнаты
+	name = p_name;
 	// Высота
 	height = p_height;
 	// Ширина
@@ -115,16 +109,8 @@ Room::Room(const string p_name, int p_height, int p_width, int p_length, bool p_
 void Room::Input()
 {
 	cout << '\n';
-	// ВВОД НАЗВАНИЯ КОМНАТЫ
+	// Ввод названия комнаты
 	cout << "Name of room: ";
-	// Временная переменная с название комнаты
-	// char p_name[100];
-	// cin.getline(p_name, 100);
-	// Если название не было пустым
-	// То есть имело до этого какое-либо значение 
-	
-	// Если массив пуст
-	// Создаем новый с длиной p_name + 1
 	cin >> name;
 	// Ввод высоты
 	cout << "Height of room: ";
