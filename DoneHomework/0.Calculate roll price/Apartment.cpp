@@ -1,9 +1,16 @@
 #include "Apartment.h"
+#include "Price.h"
+#include "Roll.h"
 #include <iostream>
-#include <cstring>
 
 using std::cout;
 using std::cin;
+
+// Сумма площадей
+int sum = 0;
+// Временная переменная
+// Объявление объекта Roll
+Roll* tmp = new Roll();
 
 // Аксессоры
 // Геттеры
@@ -49,6 +56,7 @@ Apartment::Apartment(int p_room_amount)
 // Ввод данных с клавиатуры
 void Apartment::Input()
 {
+	tmp->Input();
 	cout << "\nAmount of room: ";
 	cin >> room_amount;
 	cout << '\n';
@@ -59,8 +67,29 @@ void Apartment::Input()
 	for (int i = 0; i < room_amount; i++)
 	{
 		room_arr[i].Input();
+		// Если обои нужно клеить
+		if(room_arr[i].getGlue()){
+			// Добавляем все данные в расчет периметра и площади
+			// После ввода этих же данных
+			sum =  Sum_of_areas (Area_Room(Perimeter_Room(room_arr[i].getWidth(),
+										    room_arr[i].getLength()
+										   ),
+							room_arr[i].getHeight()
+					 			),
+							sum
+							);
+		}
 		cout << "\n";
 	}
+	
+}
+
+// Вывод количества рулонов и цены
+void Apartment::Print_price(){
+	cout << "Rolls to buy: " << Rolls_amount(sum,tmp->getLength() * tmp->getWidth()) << '\n';
+	cout << "Price of rolls: " <<  Rolls_amount(sum,tmp->getLength() * tmp->getWidth()) * tmp->getPrice() << '\n';
+	// Удаляем временную переменную
+	delete tmp;
 }
 
 // Вывод данных :
