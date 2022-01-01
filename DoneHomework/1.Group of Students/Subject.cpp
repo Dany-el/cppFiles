@@ -15,6 +15,7 @@ string* Subject::getName(){
 // Setter
 void Subject::setName(const string p_name)
 {
+    delete name;
     name = new string(p_name);
 }
 
