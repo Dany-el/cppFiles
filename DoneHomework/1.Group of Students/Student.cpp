@@ -114,6 +114,10 @@ unsigned int* Student::Input(){
     return grades_array;
 }
 
+/**
+ * @brief Destroy the Student:: Student object
+ * 
+ */
 Student::~Student()
 {
     delete[] subject;

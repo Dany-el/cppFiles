@@ -43,7 +43,10 @@ void Subject::Input(){
     name = new string(p_name);
 }
 
-// Destructor
+/**
+ * @brief Destroy the Subject:: Subject object
+ * 
+ */
 Subject::~Subject()
 {
     delete name;
