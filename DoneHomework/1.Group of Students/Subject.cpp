@@ -7,12 +7,12 @@ using std::cin;
 
 // Accessors
 
-// Getter
+// Getters
 string* Subject::getName(){
     return name;
 }
 
-// Setter
+// Setters
 void Subject::setName(const string p_name)
 {
     delete name;
