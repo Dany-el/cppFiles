@@ -1,7 +1,6 @@
 #include <iostream>
 #include "Subject.h"
 
-using std::string;
 using std::cout;
 using std::cin;
 

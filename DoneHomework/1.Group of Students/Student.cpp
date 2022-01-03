@@ -1,7 +1,6 @@
 #include <iostream>
 #include "Student.h"
 
-using std::string;
 using std::cin;
 using std::cout;
 
