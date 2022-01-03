@@ -116,6 +116,6 @@ unsigned int* Student::Input(){
 
 Student::~Student()
 {
-    delete subject;
+    delete[] subject;
     delete name;
 }
