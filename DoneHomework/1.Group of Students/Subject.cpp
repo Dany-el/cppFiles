@@ -14,19 +14,27 @@ string* Subject::getName(){
 // Setters
 void Subject::setName(const string p_name)
 {
-    delete name;
+    if(name != NULL){
+        delete name;
+    } 
     name = new string(p_name);
 }
 
 // Constructor by default
 Subject::Subject()
 {
+    if(name != NULL){
+        delete name;
+    } 
     name = new string();
 }
 
 // Constructor with parameters 
 Subject::Subject(const string p_name)
 {
+    if(name != NULL){
+        delete name;
+    } 
     name = new string(p_name);
 }
 
@@ -39,6 +47,9 @@ void Subject::Input(){
     string p_name;
     cout << "Name of subject: ";
     cin >> p_name;
+    if(name != NULL){
+        delete name;
+    } 
     name = new string(p_name);
 }
 

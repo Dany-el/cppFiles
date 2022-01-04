@@ -28,6 +28,9 @@ Subject* Student::getSubject(){
  * @param p_name - name of student
  */
 void Student::setName(const string p_name){
+    if(name != NULL){
+        delete name;
+    } 
     name = new string(p_name);
 }
 
@@ -37,7 +40,9 @@ void Student::setName(const string p_name){
  * @param subject_amount - amount of subject
  */
 void Student::setSubject(const unsigned int subject_amount){
-    delete[] subject;
+    if(subject != NULL){
+        delete[] subject;
+    }
     subject = new Subject[subject_amount];
 }
 
@@ -47,7 +52,14 @@ void Student::setSubject(const unsigned int subject_amount){
  */
 Student::Student()
 {
+    if(name != NULL){
+        delete name;
+    } 
     name = new string();
+
+    if(subject != NULL){
+        delete[] subject;
+    }
     subject = new Subject[1];
 }
 
@@ -59,7 +71,14 @@ Student::Student()
  */
 Student::Student(const string p_name,const unsigned int subject_amount)
 {
+    if(name != NULL){
+        delete name;
+    } 
     name = new string(p_name);
+    
+    if(subject != NULL){
+        delete[] subject;
+    }
     subject = new Subject[subject_amount];
 }
 
