@@ -37,6 +37,7 @@ void Student::setName(const string p_name){
  * @param subject_amount - amount of subject
  */
 void Student::setSubject(const unsigned int subject_amount){
+    delete[] subject;
     subject = new Subject[subject_amount];
 }
 
