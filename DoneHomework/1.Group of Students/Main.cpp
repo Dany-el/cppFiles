@@ -7,6 +7,7 @@ int main(){
 	group->Input();
 
 	delete group;
-	
+
 	return 0;
 }
+4
