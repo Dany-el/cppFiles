@@ -1,8 +1,12 @@
 #include <iostream>
-
+#include "Group.h"
 
 int main(){
-		
+	Group* group = new Group();
 	
-		return 0;
+	group->Input();
+
+	delete group;
+	
+	return 0;
 }
