@@ -6,35 +6,42 @@ using std::cin;
 
 // Accessors
 
-// Getters
+/**
+ * @brief Getter of subject`s name
+ * 
+ * @return string* 
+ */
 string* Subject::getName(){
     return name;
 }
 
-// Setters
+/**
+ * @brief Setter of subject`s name
+ * 
+ * @param p_name - name of subject
+ */
 void Subject::setName(const string p_name)
 {
-    if(name != NULL){
-        delete name;
-    } 
+    delete name;
     name = new string(p_name);
 }
 
-// Constructor by default
+/**
+ * @brief Construct a new Subject:: Subject object
+ * 
+ */
 Subject::Subject()
 {
-    if(name != NULL){
-        delete name;
-    } 
     name = new string();
 }
 
-// Constructor with parameters 
+/**
+ * @brief Construct a new Subject:: Subject object
+ * 
+ * @param p_name - name of subject
+ */
 Subject::Subject(const string p_name)
 {
-    if(name != NULL){
-        delete name;
-    } 
     name = new string(p_name);
 }
 
@@ -47,9 +54,6 @@ void Subject::Input(){
     string p_name;
     cout << "Name of subject: ";
     cin >> p_name;
-    if(name != NULL){
-        delete name;
-    } 
     name = new string(p_name);
 }
 
