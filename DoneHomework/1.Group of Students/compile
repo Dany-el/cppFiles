@@ -1,1 +1,0 @@
-g++ -Wall -Wextra -Werror -O Group.cpp Student.cpp Subject.cpp Main.cpp -o Main
