@@ -14,36 +14,13 @@ string* Student::getName(){
 }
 
 /**
- * @brief Getter of Subject
- * 
- * @return Subject* 
- */
-Subject* Student::getSubject(){
-    return subject;
-}
-
-/**
  * @brief Setter of Name
  * 
  * @param p_name - name of student
  */
 void Student::setName(const string p_name){
-    if(name != NULL){
-        delete name;
-    } 
+    delete name; 
     name = new string(p_name);
-}
-
-/**
- * @brief Setter of Subject
- * 
- * @param subject_amount - amount of subject
- */
-void Student::setSubject(const unsigned int subject_amount){
-    if(subject != NULL){
-        delete[] subject;
-    }
-    subject = new Subject[subject_amount];
 }
 
 /**
@@ -52,34 +29,17 @@ void Student::setSubject(const unsigned int subject_amount){
  */
 Student::Student()
 {
-    if(name != NULL){
-        delete name;
-    } 
     name = new string();
-
-    if(subject != NULL){
-        delete[] subject;
-    }
-    subject = new Subject[1];
 }
 
 /**
  * @brief Construct a new Student:: Student object
  * 
  * @param p_name          - name of subject
- * @param subject_amount  - amount of subjects
  */
-Student::Student(const string p_name,const unsigned int subject_amount)
+Student::Student(const string p_name)
 {
-    if(name != NULL){
-        delete name;
-    } 
     name = new string(p_name);
-    
-    if(subject != NULL){
-        delete[] subject;
-    }
-    subject = new Subject[subject_amount];
 }
 
 /**
@@ -87,30 +47,17 @@ Student::Student(const string p_name,const unsigned int subject_amount)
  *  amount of subjects, name of subject
  *  & student`s name and grades 
  * 
- * @return unsigned int* Grades_array 
+ * @param subject        - array with subjects` names
+ * @param subject_amount - amount of subjects
+ * 
+ * @return size_t* Grades_array 
  */
-unsigned int* Student::Input(){
-    // Amount of subject
-    unsigned int subject_amount = 0;
-    cout << "How many subjects do you have? ";
-    cin >> subject_amount;
-    // Create new one
-    delete[] subject;
-    setSubject(subject_amount);
-
-    // Take info about subjects
-    // WRITE WITHOUT SPACE !!!
-    for (size_t i = 0; i < subject_amount; i++)
-    {
-        cout << '\n' << i + 1 << ". ";
-        subject[i].Input();
-    }
-
+size_t* Student::Input(Subject* subject,const size_t subject_amount){
     // Create new array for grades
-    
+
     // Array:
     // - grades
-    unsigned int* grades_array = new unsigned int[subject_amount];
+    size_t* grades_array = new size_t[subject_amount];
    
     // Clear console
     system("clear");
@@ -122,6 +69,7 @@ unsigned int* Student::Input(){
     cin >> p_name;
     delete name;
     name = new string(p_name);
+    
     // Grades
     for (size_t i = 0; i < subject_amount; i++)
     {
@@ -139,6 +87,5 @@ unsigned int* Student::Input(){
  */
 Student::~Student()
 {
-    delete[] subject;
     delete name;
 }

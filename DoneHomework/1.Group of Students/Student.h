@@ -8,19 +8,15 @@ class Student
 private:
 	// Name of student
 	string* name;	
-	// Subjects
-	Subject* subject;
 public:
 	string* getName();
-	Subject* getSubject();
 
 	void setName(const string p_name);
-	void setSubject(const unsigned int subject_amount);
 
 	Student();
-	Student(const string p_name,const unsigned int subject_amount);
+	Student(const string p_name);
 
-	unsigned int* Input();
+	size_t* Input(Subject* subject,const size_t subject_amount);
 
 	~Student();
 };
