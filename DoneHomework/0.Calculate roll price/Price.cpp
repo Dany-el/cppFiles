@@ -14,12 +14,12 @@ int Perimeter_Room(int p_width,int p_length){
 }
 
 /*
- * Площадь комнаты
-
-@param perimeter - периметр комнаты
-@param p_height  - высота комнаты
-
-@return int - Площадь
+* Площадь комнаты
+*
+* @param perimeter - периметр комнаты
+* @param p_height  - высота комнаты
+*
+* @return int - Площадь
 */
 int Area_Room(int perimeter,int p_heigth){
 	return perimeter * p_heigth;

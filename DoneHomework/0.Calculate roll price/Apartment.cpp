@@ -1,4 +1,4 @@
-#include "Apartment.h"
+﻿#include "Apartment.h"
 #include "Price.h"
 #include "Roll.h"
 #include <iostream>
@@ -6,71 +6,74 @@
 using std::cout;
 using std::cin;
 
-// �?��� ��������
+// Сумма площадей
 int sum = 0;
-// �������Қ �ȳ�����Қ
-// �Ӟ������� �Ӟ��?� Roll
+// Временная переменная
+// Объявление объекта Roll
 Roll* tmp = new Roll();
 
-// �ߣȣ����
-// ��??ȳ�
+// Аксессоры
+// Геттеры
 
-// �ң��� ��ң��
+// Массив класса
 Room* Apartment::getRoom_arr()
 {
 	return room_arr;
 }
-// ����?ȣ?�� �����?
+// Количество комнат
 int Apartment::getRoom_amount()
 {
 	return room_amount;
 }
 
-// ��??ȳ�
-// �����?�
+// Сеттеры
+// Комнаты
 void Apartment::setRoom_arr(Room* p_room_arr)
 {
 	room_arr = p_room_arr;
 }
-// ����?ȣ?�� �����?
+// Количество комнат
 void Apartment::setRoom_amount(int p_room_amount)
 {
 	room_amount = p_room_amount;
 }
 
-// ��ܣ?�?�?�� �� ��?��??
-// ���?�����۳?��
+// Конструктор по дефолту
+// Инициализируем
 Apartment::Apartment()
 {
 	room_arr = nullptr;
 	room_amount = 0;
 }
 
-// ��ܣ?�??�� � ������ ���ܖ?
+// Конструтор с вводом данных
 Apartment::Apartment(int p_room_amount)
 {
 	room_amount = p_room_amount;
 	room_arr = new Room[room_amount];
 }
 
-// ���� ���ܖ? � ������??��
+/**
+ * @brief Ввод данных о квартире
+ * - комната(длина, ширина, высота)
+ */
 void Apartment::Input()
 {
 	tmp->Input();
 	cout << "\nAmount of room: ";
 	cin >> room_amount;
 	cout << '\n';
-	// ������� �ң��� �ٚ ����� ��?����?�� � �����?�?
+	// Создаем массив для ввода информации о комнатах
 	delete[] room_arr;
 	room_arr = new Room[room_amount];
-	// ���ܖ� � �����?�?
+	// Данные о комнатах
 	for (int i = 0; i < room_amount; i++)
 	{
 		room_arr[i].Input();
-		// ���� ���� �?��� ����??
+		// Если обои нужно клеить
 		if(room_arr[i].getGlue()){
-			// �����ٚ�� ԣ� ���ܖ� � �ң?�? �ȳ���?�� � �������
-			// ����� ����� ??�? �� ���ܖ?
+			// Добавляем все данные в расчет периметра и площади
+			// После ввода этих же данных
 			sum =  Sum_of_areas (Area_Room(Perimeter_Room(room_arr[i].getWidth(),
 										    room_arr[i].getLength()
 										   ),
@@ -81,20 +84,19 @@ void Apartment::Input()
 		}
 		cout << "\n";
 	}
-	
 }
 
-// ����� ����?ȣ?�� �?����� � ?�ܖ
+// Вывод количества рулонов и цены
 void Apartment::Print_price(){
 	cout << "Rolls to buy: " << Rolls_amount(sum,tmp->getLength() * tmp->getWidth()) << '\n';
 	cout << "Price of rolls: " <<  Rolls_amount(sum,tmp->getLength() * tmp->getWidth()) * tmp->getPrice() << '\n';
-	// ���ٚ�� Գ�����?� �ȳ�����?�
+	// Удаляем временную переменную
 	delete tmp;
 }
 
-// ����� ���ܖ? :
-// - ����?ȣ?�� �����?
-// - �����? 
+// Вывод данных :
+// - количество комнат
+// - комнат 
 void Apartment::Print()
 {
 	cout << "\nAmount of room: "<< room_amount << '\n';
@@ -105,9 +107,8 @@ void Apartment::Print()
 	}
 }
 
-// �ȣ?�?�?��
+// Деструктор
 Apartment::~Apartment()
 {
 	delete[] room_arr;
 }
-// Пробуем
