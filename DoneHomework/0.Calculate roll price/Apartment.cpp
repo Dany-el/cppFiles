@@ -1,4 +1,4 @@
-﻿#include "Apartment.h"
+#include "Apartment.h"
 #include "Price.h"
 #include "Roll.h"
 #include <iostream>

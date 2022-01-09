@@ -2,35 +2,35 @@
 #include <iostream>
 
 /*
- * Периметр комнаты
+ * РџРµСЂРёРјРµС‚СЂ РєРѕРјРЅР°С‚С‹
 
- @param p_width  - ширина комнаты
- @param p_length - длина комнаты
+ @param p_width  - С€РёСЂРёРЅР° РєРѕРјРЅР°С‚С‹
+ @param p_length - РґР»РёРЅР° РєРѕРјРЅР°С‚С‹
 
- @return int - Периметр комнаты
+ @return int - РџРµСЂРёРјРµС‚СЂ РєРѕРјРЅР°С‚С‹
 */
 int Perimeter_Room(int p_width,int p_length){
 	return 2*(p_width+p_length);
 }
 
 /*
-* Площадь комнаты
+* РџР»РѕС‰Р°РґСЊ РєРѕРјРЅР°С‚С‹
 *
-* @param perimeter - периметр комнаты
-* @param p_height  - высота комнаты
+* @param perimeter - РїРµСЂРёРјРµС‚СЂ РєРѕРјРЅР°С‚С‹
+* @param p_height  - РІС‹СЃРѕС‚Р° РєРѕРјРЅР°С‚С‹
 *
-* @return int - Площадь
+* @return int - РџР»РѕС‰Р°РґСЊ
 */
 int Area_Room(int perimeter,int p_heigth){
 	return perimeter * p_heigth;
 }
 
 /**
- * @brief Сумма площадей
+ * @brief РЎСѓРјРјР° РїР»РѕС‰Р°РґРµР№
  * 
- * @param area - площадь комнаты
- * @param sum  - переменная для сбора площадей
- * @return int - Сумма площадей
+ * @param area - РїР»РѕС‰Р°РґСЊ РєРѕРјРЅР°С‚С‹
+ * @param sum  - РїРµСЂРµРјРµРЅРЅР°СЏ РґР»СЏ СЃР±РѕСЂР° РїР»РѕС‰Р°РґРµР№
+ * @return int - РЎСѓРјРјР° РїР»РѕС‰Р°РґРµР№
  */
 int Sum_of_areas(int area,int sum){
     sum += area;
@@ -38,11 +38,11 @@ int Sum_of_areas(int area,int sum){
 }
 
 /**
- * @brief Количество рулонов для покупки
+ * @brief РљРѕР»РёС‡РµСЃС‚РІРѕ СЂСѓР»РѕРЅРѕРІ РґР»СЏ РїРѕРєСѓРїРєРё
  * 
- * @param sum_of_areas - сумма площадей всех комнат
- * @param area_of_roll - площадь рулона
- * @return int - Количество рулонов
+ * @param sum_of_areas - СЃСѓРјРјР° РїР»РѕС‰Р°РґРµР№ РІСЃРµС… РєРѕРјРЅР°С‚
+ * @param area_of_roll - РїР»РѕС‰Р°РґСЊ СЂСѓР»РѕРЅР°
+ * @return int - РљРѕР»РёС‡РµСЃС‚РІРѕ СЂСѓР»РѕРЅРѕРІ
  */
 int Rolls_amount(int sum_of_areas,int area_of_roll){
     int tmp = sum_of_areas/area_of_roll;
