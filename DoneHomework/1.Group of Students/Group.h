@@ -11,9 +11,9 @@ private:
 	// Subjects(array)
 	Subject* subject_array;
 public:
-	string* getName() const;
-	Student* getStudent_array() const;
-	Subject* getSubject_array() const;
+	inline string* getName() const;
+	inline Student* getStudent_array() const;
+	inline Subject* getSubject_array() const;
 
 	void setName(const string p_name);
 	void setStudent(const size_t student_amount);
