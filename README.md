@@ -24,6 +24,6 @@ DoneHomework - сделанное дз, предназначенное для Ш
 
 *//Информация об телевизоре*
 
-***3. String ***
+***3. String***
 
 *//Copy of char function*
