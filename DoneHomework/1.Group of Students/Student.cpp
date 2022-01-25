@@ -9,7 +9,7 @@ using std::cout;
  * 
  * @return string* 
  */
-string* Student::getName(){
+string* Student::getName() const{
     return name;
 }
 
