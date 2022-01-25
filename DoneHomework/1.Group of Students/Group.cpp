@@ -10,7 +10,7 @@ using std::cin;
  * 
  * @return string*
  */
-string* Group::getName() const{ 
+inline string* Group::getName() const{ 
     return name;
 }
 
@@ -19,7 +19,7 @@ string* Group::getName() const{
  * 
  * @return Student* 
  */
-Student* Group::getStudent_array() const{
+inline Student* Group::getStudent_array() const{
     return student_array;
 }
 
@@ -28,7 +28,7 @@ Student* Group::getStudent_array() const{
  * 
  * @return Subject* 
  */
-Subject* Group::getSubject_array() const{
+inline Subject* Group::getSubject_array() const{
     return subject_array;
 }
 
