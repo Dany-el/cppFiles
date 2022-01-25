@@ -200,7 +200,7 @@ void Group::Min_grade(size_t** grades_array,const size_t student_amount,const si
  * @param student_amount - amount of students
  * @param subject_amount - amount of subjects
  */
-void Group::Print(size_t** grades_array,const size_t student_amount,const size_t subject_amount) const{
+void Group::Print(const size_t** grades_array,const size_t student_amount,const size_t subject_amount) const{
     cout << "Group: " << *name << '\n';
     
     // Subjects
