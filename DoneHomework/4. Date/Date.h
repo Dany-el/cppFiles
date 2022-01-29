@@ -20,9 +20,7 @@ class Date{
     unsigned int ConvertDateIntoDays(const Date p_date);
     // Converter of days -> date
     Date ConvertDaysIntoDate(unsigned int full_days);
-    // Operators
-    unsigned int operator - (const Date second_date);
-    Date operator + (const unsigned int p_days);
+    
 public:
     inline unsigned int getDay() const;
     inline unsigned int getMonth() const;
@@ -37,6 +35,9 @@ public:
 
     void Input();
     void Print();
+
+    unsigned int operator - (const Date second_date);
+    Date operator + (const unsigned int p_days);
 
     ~Date();
 };
