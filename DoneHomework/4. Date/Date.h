@@ -38,6 +38,8 @@ public:
 
     unsigned int operator - (const Date second_date);
     Date operator + (const unsigned int p_days);
+    Date operator++();
+	Date operator--();
 
     ~Date();
 };
