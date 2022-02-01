@@ -355,9 +355,9 @@ Date Date::operator + (const unsigned int p_days){
 * @return Date
 */
 Date Date::operator++(){
-	Date tmp;
-	tmp = ConvertDaysIntoDate(ConvertDateIntoDays(tmp)++);
-	return tmp;
+    Date tmp;
+    tmp = ConvertDaysIntoDate(ConvertDateIntoDays(tmp)++);
+    return tmp;
 }
 
 /*
@@ -366,9 +366,9 @@ Date Date::operator++(){
 * @return Date
 */
 Date Date::operator--() {
-	Date tmp;
-	tmp = ConvertDaysIntoDate(ConvertDateIntoDays(tmp)--);
-	return tmp;
+    Date tmp;
+    tmp = ConvertDaysIntoDate(ConvertDateIntoDays(tmp)--);
+    return tmp;
 }
 
 /**
