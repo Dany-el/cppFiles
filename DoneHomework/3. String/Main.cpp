@@ -3,7 +3,29 @@
 
 
 int main(){
-    String* tmp = new String("hello");
+    String tmp ("hello");
+    String tmp2;
+    puts("How many symbol 'X' do you want to add?");
+    int user_amount;
+    std::cin >> user_amount;
+    for (size_t i = 0; i < user_amount; i++)
+    {
+        tmp2.setString(++tmp);
+        puts(tmp2.getString());
+    }
+    puts("How many symbol 'X' do you want to remove?");
+    std::cin >> user_amount;
+    for (size_t i = 0; i < user_amount; i++)
+    {
+        tmp2.setString(--tmp);
+        puts(tmp2.getString());
+    }
+    
+    //puts(tmp2.getString());
+
+    //String tmp3 = --tmp;
+    //puts(tmp3.getString());
+
     // tmp->InputString();
     // tmp->PrintString();
 
@@ -22,6 +44,5 @@ int main(){
 
     //std::cout << tmp->ojects_count;
 
-    delete tmp;
     return 0;
 }

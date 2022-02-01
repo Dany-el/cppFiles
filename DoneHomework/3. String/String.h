@@ -32,5 +32,8 @@ public:
     void MyDelChr(char c);
     int MyStrCmp(const String& obj);
 
+    char* operator++();
+    char* operator--();
+
     ~String();
 };

@@ -229,6 +229,56 @@ int String::MyStrCmp(const String& obj){
 }
 
 /**
+ * @brief Add to the end 1 symbol 
+ * 
+ * @return String 
+ */
+char* String::operator++(){
+    // Create new char with old char elements
+    char* tmp = new char[strlen(str)+1];
+    strcpy(tmp,str);
+    // Delete old
+    delete[] str;
+    str = new char[strlen(tmp)+2];
+    // Copy new 
+    strcpy(str,tmp);
+    delete[] tmp;
+    // Change the new 
+    str[strlen(str)] = 'X';
+    str[strlen(str) + 1] = '\0';
+    return str;
+}
+
+/**
+ * @brief Remove the last symbol 
+ * 
+ * @return String 
+ */
+char* String::operator--(){
+    // tmp char
+    // without symbol 
+    char p_str[strlen(str) + 1];
+    // Counter for tmp char
+    for (int i = 0; i < strlen(str); i++)
+    {
+        p_str[i] = str[i];
+    }
+    // End with terminator
+    p_str[strlen(str)-1] = '\0';
+    // Copy to main string 
+    delete[] str;
+    str = new char[strlen(p_str) + 1];
+    strcpy(str,p_str);
+    return str;
+}
+// Есть прикол с повторным выполнением бинарной операции -- и ++
+// То есть
+// String tmp2 = ++tmp
+// tmp2 = --tmp;
+// - будет выдавать ошибку, а если создать новый объект и записать в него  
+
+
+/**
  * @brief Destroy the String:: String object
  * 
  */
