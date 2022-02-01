@@ -11,7 +11,7 @@ using std::cin;
  * 
  * @return string* 
  */
-string* Subject::getName(){
+string* Subject::getName() const{
     return name;
 }
 

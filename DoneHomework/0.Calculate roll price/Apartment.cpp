@@ -6,71 +6,74 @@
 using std::cout;
 using std::cin;
 
-// Ñóììà ïëîùàäåé
+// Ð¡ÑƒÐ¼Ð¼Ð° Ð¿Ð»Ð¾Ñ‰Ð°Ð´ÐµÐ¹
 int sum = 0;
-// Âðåìåííàÿ ïåðåìåííàÿ
-// Îáúÿâëåíèå îáúåêòà Roll
+// Ð’Ñ€ÐµÐ¼ÐµÐ½Ð½Ð°Ñ Ð¿ÐµÑ€ÐµÐ¼ÐµÐ½Ð½Ð°Ñ
+// ÐžÐ±ÑŠÑÐ²Ð»ÐµÐ½Ð¸Ðµ Ð¾Ð±ÑŠÐµÐºÑ‚Ð° Roll
 Roll* tmp = new Roll();
 
-// Àêñåññîðû
-// Ãåòòåðû
+// ÐÐºÑÐµÑÑÐ¾Ñ€Ñ‹
+// Ð“ÐµÑ‚Ñ‚ÐµÑ€Ñ‹
 
-// Ìàññèâ êëàññà
+// ÐœÐ°ÑÑÐ¸Ð² ÐºÐ»Ð°ÑÑÐ°
 Room* Apartment::getRoom_arr()
 {
 	return room_arr;
 }
-// Êîëè÷åñòâî êîìíàò
+// ÐšÐ¾Ð»Ð¸Ñ‡ÐµÑÑ‚Ð²Ð¾ ÐºÐ¾Ð¼Ð½Ð°Ñ‚
 int Apartment::getRoom_amount()
 {
 	return room_amount;
 }
 
-// Ñåòòåðû
-// Êîìíàòû
+// Ð¡ÐµÑ‚Ñ‚ÐµÑ€Ñ‹
+// ÐšÐ¾Ð¼Ð½Ð°Ñ‚Ñ‹
 void Apartment::setRoom_arr(Room* p_room_arr)
 {
 	room_arr = p_room_arr;
 }
-// Êîëè÷åñòâî êîìíàò
+// ÐšÐ¾Ð»Ð¸Ñ‡ÐµÑÑ‚Ð²Ð¾ ÐºÐ¾Ð¼Ð½Ð°Ñ‚
 void Apartment::setRoom_amount(int p_room_amount)
 {
 	room_amount = p_room_amount;
 }
 
-// Êîíñòðóêòîð ïî äåôîëòó
-// Èíèöèàëèçèðóåì
+// ÐšÐ¾Ð½ÑÑ‚Ñ€ÑƒÐºÑ‚Ð¾Ñ€ Ð¿Ð¾ Ð´ÐµÑ„Ð¾Ð»Ñ‚Ñƒ
+// Ð˜Ð½Ð¸Ñ†Ð¸Ð°Ð»Ð¸Ð·Ð¸Ñ€ÑƒÐµÐ¼
 Apartment::Apartment()
 {
 	room_arr = nullptr;
 	room_amount = 0;
 }
 
-// Êîíñòðóòîð ñ ââîäîì äàííûõ
+// ÐšÐ¾Ð½ÑÑ‚Ñ€ÑƒÑ‚Ð¾Ñ€ Ñ Ð²Ð²Ð¾Ð´Ð¾Ð¼ Ð´Ð°Ð½Ð½Ñ‹Ñ…
 Apartment::Apartment(int p_room_amount)
 {
 	room_amount = p_room_amount;
 	room_arr = new Room[room_amount];
 }
 
-// Ââîä äàííûõ ñ êëàâèàòóðû
+/**
+ * @brief Ð’Ð²Ð¾Ð´ Ð´Ð°Ð½Ð½Ñ‹Ñ… Ð¾ ÐºÐ²Ð°Ñ€Ñ‚Ð¸Ñ€Ðµ
+ * - ÐºÐ¾Ð¼Ð½Ð°Ñ‚Ð°(Ð´Ð»Ð¸Ð½Ð°, ÑˆÐ¸Ñ€Ð¸Ð½Ð°, Ð²Ñ‹ÑÐ¾Ñ‚Ð°)
+ */
 void Apartment::Input()
 {
 	tmp->Input();
 	cout << "\nAmount of room: ";
 	cin >> room_amount;
 	cout << '\n';
-	// Ñîçäàåì ìàññèâ äëÿ ââîäà èíôîðìàöèè î êîìíàòàõ
+	// Ð¡Ð¾Ð·Ð´Ð°ÐµÐ¼ Ð¼Ð°ÑÑÐ¸Ð² Ð´Ð»Ñ Ð²Ð²Ð¾Ð´Ð° Ð¸Ð½Ñ„Ð¾Ñ€Ð¼Ð°Ñ†Ð¸Ð¸ Ð¾ ÐºÐ¾Ð¼Ð½Ð°Ñ‚Ð°Ñ…
 	delete[] room_arr;
 	room_arr = new Room[room_amount];
-	// Äàííûå î êîìíàòàõ
+	// Ð”Ð°Ð½Ð½Ñ‹Ðµ Ð¾ ÐºÐ¾Ð¼Ð½Ð°Ñ‚Ð°Ñ…
 	for (int i = 0; i < room_amount; i++)
 	{
 		room_arr[i].Input();
-		// Åñëè îáîè íóæíî êëåèòü
+		// Ð•ÑÐ»Ð¸ Ð¾Ð±Ð¾Ð¸ Ð½ÑƒÐ¶Ð½Ð¾ ÐºÐ»ÐµÐ¸Ñ‚ÑŒ
 		if(room_arr[i].getGlue()){
-			// Äîáàâëÿåì âñå äàííûå â ðàñ÷åò ïåðèìåòðà è ïëîùàäè
-			// Ïîñëå ââîäà ýòèõ æå äàííûõ
+			// Ð”Ð¾Ð±Ð°Ð²Ð»ÑÐµÐ¼ Ð²ÑÐµ Ð´Ð°Ð½Ð½Ñ‹Ðµ Ð² Ñ€Ð°ÑÑ‡ÐµÑ‚ Ð¿ÐµÑ€Ð¸Ð¼ÐµÑ‚Ñ€Ð° Ð¸ Ð¿Ð»Ð¾Ñ‰Ð°Ð´Ð¸
+			// ÐŸÐ¾ÑÐ»Ðµ Ð²Ð²Ð¾Ð´Ð° ÑÑ‚Ð¸Ñ… Ð¶Ðµ Ð´Ð°Ð½Ð½Ñ‹Ñ…
 			sum =  Sum_of_areas (Area_Room(Perimeter_Room(room_arr[i].getWidth(),
 										    room_arr[i].getLength()
 										   ),
@@ -81,20 +84,19 @@ void Apartment::Input()
 		}
 		cout << "\n";
 	}
-	
 }
 
-// Âûâîä êîëè÷åñòâà ðóëîíîâ è öåíû
+// Ð’Ñ‹Ð²Ð¾Ð´ ÐºÐ¾Ð»Ð¸Ñ‡ÐµÑÑ‚Ð²Ð° Ñ€ÑƒÐ»Ð¾Ð½Ð¾Ð² Ð¸ Ñ†ÐµÐ½Ñ‹
 void Apartment::Print_price(){
 	cout << "Rolls to buy: " << Rolls_amount(sum,tmp->getLength() * tmp->getWidth()) << '\n';
 	cout << "Price of rolls: " <<  Rolls_amount(sum,tmp->getLength() * tmp->getWidth()) * tmp->getPrice() << '\n';
-	// Óäàëÿåì âðåìåííóþ ïåðåìåííóþ
+	// Ð£Ð´Ð°Ð»ÑÐµÐ¼ Ð²Ñ€ÐµÐ¼ÐµÐ½Ð½ÑƒÑŽ Ð¿ÐµÑ€ÐµÐ¼ÐµÐ½Ð½ÑƒÑŽ
 	delete tmp;
 }
 
-// Âûâîä äàííûõ :
-// - êîëè÷åñòâî êîìíàò
-// - êîìíàò 
+// Ð’Ñ‹Ð²Ð¾Ð´ Ð´Ð°Ð½Ð½Ñ‹Ñ… :
+// - ÐºÐ¾Ð»Ð¸Ñ‡ÐµÑÑ‚Ð²Ð¾ ÐºÐ¾Ð¼Ð½Ð°Ñ‚
+// - ÐºÐ¾Ð¼Ð½Ð°Ñ‚ 
 void Apartment::Print()
 {
 	cout << "\nAmount of room: "<< room_amount << '\n';
@@ -105,9 +107,8 @@ void Apartment::Print()
 	}
 }
 
-// Äåñòðóêòîð
+// Ð”ÐµÑÑ‚Ñ€ÑƒÐºÑ‚Ð¾Ñ€
 Apartment::~Apartment()
 {
 	delete[] room_arr;
 }
-

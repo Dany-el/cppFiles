@@ -6,7 +6,7 @@ class Subject
 private:
 	string* name;
 public:
-	string* getName();
+	string* getName() const;
 	
 	void setName(const string p_name);
 
@@ -17,6 +17,3 @@ public:
 
 	~Subject();
 };
-
-
-

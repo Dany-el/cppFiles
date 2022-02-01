@@ -10,7 +10,7 @@ using std::cin;
  * 
  * @return string*
  */
-string* Group::getName(){
+inline string* Group::getName() const{ 
     return name;
 }
 
@@ -19,7 +19,7 @@ string* Group::getName(){
  * 
  * @return Student* 
  */
-Student* Group::getStudent_array(){
+inline Student* Group::getStudent_array() const{
     return student_array;
 }
 
@@ -28,7 +28,7 @@ Student* Group::getStudent_array(){
  * 
  * @return Subject* 
  */
-Subject* Group::getSubject_array(){
+inline Subject* Group::getSubject_array() const{
     return subject_array;
 }
 
@@ -200,7 +200,7 @@ void Group::Min_grade(size_t** grades_array,const size_t student_amount,const si
  * @param student_amount - amount of students
  * @param subject_amount - amount of subjects
  */
-void Group::Print(size_t** grades_array,const size_t student_amount,const size_t subject_amount){
+void Group::Print(const size_t** grades_array,const size_t student_amount,const size_t subject_amount) const{
     cout << "Group: " << *name << '\n';
     
     // Subjects

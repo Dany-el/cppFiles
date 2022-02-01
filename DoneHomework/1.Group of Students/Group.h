@@ -1,6 +1,7 @@
 #pragma once
 #include "Student.h"
 #include <string>
+
 class Group
 {
 private:
@@ -11,9 +12,9 @@ private:
 	// Subjects(array)
 	Subject* subject_array;
 public:
-	string* getName();
-	Student* getStudent_array();
-	Subject* getSubject_array();
+	inline string* getName() const;
+	inline Student* getStudent_array() const;
+	inline Subject* getSubject_array() const;
 
 	void setName(const string p_name);
 	void setStudent(const size_t student_amount);
@@ -22,7 +23,7 @@ public:
 	Group();
 	Group(const string p_name,const size_t student_amount,const size_t subject_amount);
 
-	void Print(size_t** grades_array,const size_t student_amount,const size_t subject_amount);
+	void Print(const size_t** grades_array,const size_t student_amount,const size_t subject_amount) const;
 	void Input();
 
 	void Max_grade(size_t** grades_array,const size_t student_amount,const size_t subject_amount);
