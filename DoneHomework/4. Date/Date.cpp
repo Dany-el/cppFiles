@@ -242,7 +242,7 @@ void Date::Input(){
  * 
  */
 void Date::Print(){
-    system("clear");
+    //system("clear");
     cout << "Date:\n" << day << '.' << month << '.' << year << '\n';
 }
 
@@ -293,6 +293,77 @@ unsigned int Date::ConvertDateIntoDays(const Date p_date){
 }
 
 /**
+ * @brief Check the right writing of the date
+ * 
+ */
+void Date::RightDatePlusPlus(Date& tmp){
+    if (month == 2)
+    {
+        if (day > 28)
+        {
+            day -= 28;
+        }
+        else if (day == 28)
+        {
+            day = 1;
+        }
+        ++month;
+    }
+    else if (month <= 7) 
+    {
+        if (month % 2 == 0)
+        {
+            if (day > 30)
+            {
+                day -= 30;                
+            }
+            else if (day == 30)
+            {
+                day = 1;
+            }
+            ++month;
+        }
+        else{
+            if (day > 31)
+            {
+                day -= 31;                
+            }
+            else if (day == 31)
+            {
+                day = 1;
+            }
+            ++month;
+        }        
+    }
+    else if (month >=8)
+    {
+        if (month % 2 != 0 )
+        {
+            if (day >30)
+            {
+                day -= 30;
+            }
+            else if (day == 30)
+            {
+                day = 1;
+            }
+            ++month;
+        }
+        else{
+            if (day > 31)
+            {
+                day = day - 31;                
+            }
+            else if (day == 31)
+            {
+                day = 1;
+            }
+            ++month;
+        }    
+    }  
+}
+
+/**
  * @brief Convert days into date 
  * 
  * @param full_days - sum of days (date and days) 
@@ -302,10 +373,13 @@ Date Date::ConvertDaysIntoDate(unsigned int full_days){
     Date tmp;
     tmp.setYear(full_days/365);
     full_days -= tmp.getYear()*365;
-    tmp.setMonth(full_days*0.032855);
-    // I use average 30 instead of 31 or 28
-    full_days -=tmp.getMonth() * 30;
+    tmp.setMonth(1 + (full_days*0.032855));
+    // I use max 31 instead of 30 or 28
+    full_days -=(tmp.getMonth() - 1) * 31;
     tmp.setDay(full_days);
+    // Sadly, but date has
+    // to 6 days - not exact result  
+    RightDatePlusPlus(tmp);
     return tmp;
 }
 
@@ -349,26 +423,38 @@ Date Date::operator + (const unsigned int p_days){
     return tmp;
 }
 
-/*
-* @brief Overload operator - increment of the date
-*
-* @return Date
-*/
-Date Date::operator++(){
+/**
+ * @brief Plus 
+ * 
+ * @return Date 
+ */
+Date Date::operator ++(){
+    // Copy date to new object
     Date tmp;
-    tmp = ConvertDaysIntoDate(ConvertDateIntoDays(tmp)++);
-    return tmp;
+    tmp.setDay(day);
+    tmp.setMonth(month);
+    tmp.setYear(year);
+    // Tmp
+    unsigned int days = ConvertDateIntoDays(tmp);
+    tmp = ConvertDaysIntoDate(++days);
+    return tmp; 
 }
 
-/*
-* @brief Overload operator - decrement of the date
-*
-* @return Date
-*/
-Date Date::operator--() {
+/**
+ * @brief 
+ * 
+ * @return Date 
+ */
+Date Date::operator --(){
+    // Copy date to new object
     Date tmp;
-    tmp = ConvertDaysIntoDate(ConvertDateIntoDays(tmp)--);
-    return tmp;
+    tmp.setDay(day);
+    tmp.setMonth(month);
+    tmp.setYear(year);
+    // Tmp
+    unsigned int days = ConvertDateIntoDays(tmp);
+    tmp = ConvertDaysIntoDate(--days);
+    return tmp; 
 }
 
 /**
