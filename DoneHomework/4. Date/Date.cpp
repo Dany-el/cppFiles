@@ -348,6 +348,29 @@ Date Date::operator + (const unsigned int p_days){
     tmp = ConvertDaysIntoDate(ConvertDateIntoDays(tmp) + p_days);
     return tmp;
 }
+
+/*
+* @brief Overload operator - increment of the date
+*
+* @return Date
+*/
+Date Date::operator++(){
+	Date tmp;
+	tmp = ConvertDaysIntoDate(ConvertDateIntoDays(tmp)++);
+	return tmp;
+}
+
+/*
+* @brief Overload operator - decrement of the date
+*
+* @return Date
+*/
+Date Date::operator--() {
+	Date tmp;
+	tmp = ConvertDaysIntoDate(ConvertDateIntoDays(tmp)--);
+	return tmp;
+}
+
 /**
  * @brief Destroy the Date:: Date object
  * 
