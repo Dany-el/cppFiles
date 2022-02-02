@@ -271,12 +271,6 @@ char* String::operator--(){
     strcpy(str,p_str);
     return str;
 }
-// Есть прикол с повторным выполнением бинарной операции -- и ++
-// То есть
-// String tmp2 = ++tmp
-// tmp2 = --tmp;
-// - будет выдавать ошибку, а если создать новый объект и записать в него  
-
 
 /**
  * @brief Destroy the String:: String object
