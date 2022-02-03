@@ -272,7 +272,7 @@ char* String::operator--(){
     return str;
 }
 
-char& operator[](const size_t index){
+char& String::operator[](const size_t index){
     if(index > 0 && index < strlen(str)){
         return str[index];
     }
