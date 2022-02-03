@@ -273,6 +273,19 @@ char* String::operator--(){
 }
 
 /**
+ * @brief Show symbol of char array
+ * 
+ * @param index - index(symbol)
+ * @return char& 
+ */
+char& String::operator[](const int index){
+    if(index > 0 && index < strlen(str)){
+        return str[index];
+    }
+    return str[0];
+}
+
+/**
  * @brief Destroy the String:: String object
  * 
  */
@@ -281,5 +294,3 @@ String::~String()
     ojects_count--;
     delete[] str;
 }
-
-

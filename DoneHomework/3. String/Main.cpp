@@ -1,25 +1,41 @@
 ﻿#include <iostream>
+#include <string.h>
 #include "String.h"
 
+char* operator+(String& obj1,String& obj2){
+    strcat(obj1.getString()," ");
+    strcat(obj1.getString(),obj2.getString());
+    return obj1.getString();
+}
 
 int main(){
     String tmp ("hello");
-    String tmp2;
-    puts("How many symbol 'X' do you want to add?");
-    int user_amount;
-    std::cin >> user_amount;
-    for (size_t i = 0; i < user_amount; i++)
+    tmp.PrintString();
+    String tmp3 ("world");
+    String tmp4;
+    tmp4.setString(tmp + tmp3);
+    tmp4.PrintString();
+    for (size_t i = 0; i < strlen(tmp4.getString()); i++)
     {
-        tmp2.setString(++tmp);
-        puts(tmp2.getString());
+        std::cout << tmp4[i] << '\n';
     }
-    puts("How many symbol 'X' do you want to remove?");
-    std::cin >> user_amount;
-    for (size_t i = 0; i < user_amount; i++)
-    {
-        tmp2.setString(--tmp);
-        puts(tmp2.getString());
-    }
+    
+    // String tmp2;
+    // puts("How many symbol 'X' do you want to add?");
+    // int user_amount;
+    // std::cin >> user_amount;
+    // for (size_t i = 0; i < user_amount; i++)
+    // {
+    //     tmp2.setString(++tmp);
+    //     puts(tmp2.getString());
+    // }
+    // puts("How many symbol 'X' do you want to remove?");
+    // std::cin >> user_amount;
+    // for (size_t i = 0; i < user_amount; i++)
+    // {
+    //     tmp2.setString(--tmp);
+    //     puts(tmp2.getString());
+    // }
     
     //puts(tmp2.getString());
 
