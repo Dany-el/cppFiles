@@ -34,7 +34,7 @@ public:
 
     char* operator++();
     char* operator--();
-    char& operator[](const size_t index);
+    char operator[](const int index);
 
     ~String();
 };
