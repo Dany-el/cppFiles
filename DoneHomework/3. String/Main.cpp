@@ -1,6 +1,10 @@
-﻿#include <iostream>
+#include <iostream>
 #include "String.h"
 
+char operator+(const String obj1,const String obj2){
+    strcat(obj1.getString(),obj2.getString());
+    return obj1.getString();
+}
 
 int main(){
     String tmp ("hello");
