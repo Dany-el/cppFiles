@@ -272,7 +272,13 @@ char* String::operator--(){
     return str;
 }
 
-char& String::operator[](const size_t index){
+/**
+ * @brief Show symbol of char array
+ * 
+ * @param index - index(symbol)
+ * @return char& 
+ */
+char& String::operator[](const int index){
     if(index > 0 && index < strlen(str)){
         return str[index];
     }
