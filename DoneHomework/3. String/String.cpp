@@ -272,6 +272,13 @@ char* String::operator--(){
     return str;
 }
 
+char& operator[](const size_t index){
+    if(index > 0 && index < strlen(str)){
+        return str[index];
+    }
+    return str[0];
+}
+
 /**
  * @brief Destroy the String:: String object
  * 
@@ -281,5 +288,3 @@ String::~String()
     ojects_count--;
     delete[] str;
 }
-
-
