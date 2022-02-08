@@ -1,7 +1,7 @@
 #include "Circle.h"
 
 /**
- * @brief 
+ * @brief Overloading of ostream
  * 
  * @param stream - ostream's object
  * @param tmp - object 
@@ -12,7 +12,7 @@ std::ostream& operator<<(std::ostream& stream,const Circle& tmp){
 }
 
 /**
- * @brief 
+ * @brief Overloading of istream
  * 
  * @param stream - istream's object
  * @param tmp - object
@@ -27,7 +27,7 @@ std::istream& operator>>(std::istream& stream,Circle& tmp){
 }
 
 /**
- * @brief 
+ * @brief Overloading of ==
  * 
  * @param tmp - object 
  * @return true equal
@@ -38,7 +38,7 @@ bool Circle::operator==(const Circle& tmp){
 }
 
 /**
- * @brief 
+ * @brief Overloading of >
  * 
  * @param tmp - object
  * @return true more
@@ -49,9 +49,9 @@ bool Circle::operator>(const Circle& tmp){
 }
 
 /**
- * @brief 
+ * @brief Overloading of +=
  * 
- * @param number 
+ * @param number - number to add
  * @return Circle& 
  */
 Circle& Circle::operator+=(const size_t number){
@@ -60,9 +60,9 @@ Circle& Circle::operator+=(const size_t number){
 }
 
 /**
- * @brief 
+ * @brief Overloading of -=
  * 
- * @param number 
+ * @param number - number to remove
  * @return Circle& 
  */
 Circle& Circle::operator-=(const size_t number){
