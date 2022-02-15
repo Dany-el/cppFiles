@@ -99,6 +99,16 @@ String::String(const char* p_str){
 }
 
 /**
+ * @brief Construct a new String:: String object
+ * 
+ * @param tmp - object
+ */
+String::String(String&& tmp){
+    str = tmp.str;
+    tmp.str = nullptr;
+}
+
+/**
  * @brief Input string
  * 
  */
@@ -283,6 +293,26 @@ char& String::operator[](const int index){
         return str[index];
     }
     return str[0];
+}
+
+/**
+ * @brief Object = Paramentr object
+ * 
+ * @param obj 
+ * @return String 
+ */
+String String::operator=(String&& obj){
+    if (this != &obj)
+    {   
+        if (strlen(str) > 0)
+        {
+            delete[] str;
+        }        
+        str = obj.str;
+        obj.str = nullptr;
+        return *this;
+    }    
+    return *this;
 }
 
 /**
