@@ -20,7 +20,7 @@ class Date{
     unsigned int ConvertDateIntoDays(const Date p_date);
     // Converter of days -> date
     Date ConvertDaysIntoDate(unsigned int full_days);
-    
+    void Date::RightDatePlusPlus(Date& tmp);
 public:
     inline unsigned int getDay() const;
     inline unsigned int getMonth() const;
