@@ -20,6 +20,7 @@ public:
     String(const char* p_str, const unsigned int p_length);
     String(const char* p_str);
     String(const String& tmp);
+    String(String&& tmp);
 
     void InputString();
     void PrintString();
@@ -35,6 +36,7 @@ public:
     char* operator++();
     char* operator--();
     char& operator[](const int index);
+    String operator=(String&& obj);
 
     ~String();
 };

@@ -10,16 +10,21 @@ char* operator+(String& obj1,String& obj2){
 
 int main(){
     String tmp ("hello");
-    tmp.PrintString();
-    String tmp3 ("world");
-    String tmp4;
-    tmp4.setString(tmp + tmp3);
-    tmp4.PrintString();
-    for (size_t i = 0; i < strlen(tmp4.getString()); i++)
-    {
-        std::cout << tmp4[i] << '\n';
-    }
-    
+    // tmp.PrintString();
+    // String tmp3 ("world");
+    // String tmp4;
+    // tmp4.setString(tmp + tmp3);
+    // tmp4.PrintString();
+    // for (size_t i = 0; i < strlen(tmp4.getString()); i++)
+    // {
+    //     std::cout << tmp4[i] << '\n';
+    // }
+
+    String tmp5;
+
+    tmp5 = std::move(tmp);
+    tmp5.PrintString();
+
     // String tmp2;
     // puts("How many symbol 'X' do you want to add?");
     // int user_amount;
