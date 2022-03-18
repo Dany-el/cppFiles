@@ -22,12 +22,7 @@ public:
     void add_info();
     void change_info();
 
-    friend std::ostream &operator<<(std::ostream &out, const Contact &tmp)
-    {
-        return out << "\tName: " << *tmp.name
-                   << "\tSurname: " << *tmp.surname
-                   << "\n\tPhone number: " << tmp.phone_number << '\n';
-    }
-
+    friend std::ostream &operator<<(std::ostream &out, const Contact &tmp);
+    
     ~Contact();
 };
