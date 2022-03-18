@@ -17,20 +17,18 @@ void Base::add_contact()
     cout << "Adding contact...\n";
     Contact *tmp = new Contact();
     tmp->add_info();
-
-    // Empty Base
-    if (amount_contact == 0)
-    {
-        array.push_front(tmp);
-    }
-    // Not Empty Base
-    else
-    {
-        array.push_back(tmp);
-    }
+    // Add contact to the end of the list
+    // If it is first data, it'll be the first  
+    array.push_back(tmp);
+    // Increase amount of added contacts
     amount_contact++;
 }
 
+/**
+ * @brief Add base in new list(or old one)
+ * 
+ * @param info - contact
+ */
 void Base::add_contact(Contact *info)
 {
     array.push_back(info);
