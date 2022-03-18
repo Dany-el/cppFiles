@@ -12,7 +12,7 @@ using std::cout;
  */
 std::string *Contact::getName() const
 {
-    return surname;
+    return name;
 }
 
 /**
@@ -141,6 +141,20 @@ void Contact::change_info()
     default:
         break;
     }
+}
+
+/**
+ * @brief Output list
+ *
+ * @param out - source like "cout"
+ * @param tmp - contact
+ * @return std::ostream&
+ */
+std::ostream &operator<<(std::ostream &out, const Contact &tmp)
+{
+    return out << "\tName: " << *tmp.name
+               << "\tSurname: " << *tmp.surname
+               << "\n\tPhone number: " << tmp.phone_number << '\n';
 }
 
 /**

@@ -8,6 +8,24 @@ using std::cout;
 int Base::amount_contact = 0;
 
 /**
+ * @brief Create or open txt file
+ *
+ * @return std::ofstream
+ */
+std::ofstream Base::w_create_file()
+{
+    std::ofstream file("Base.txt", std::ios::app);
+    if (!file.is_open())
+    {
+        cout << "Failed to open file\n";
+    }
+    else
+    {
+        return file;
+    }
+}
+
+/**
  * @brief Add contact
  *
  */
@@ -17,20 +35,28 @@ void Base::add_contact()
     cout << "Adding contact...\n";
     Contact *tmp = new Contact();
     tmp->add_info();
-
-    // Empty Base
-    if (amount_contact == 0)
-    {
-        array.push_front(tmp);
-    }
-    // Not Empty Base
-    else
-    {
-        array.push_back(tmp);
-    }
+    // Add contact to the end of the list
+    // If it is first data, it'll be the first
+    array.push_back(tmp);
+    // Increase amount of added contacts
     amount_contact++;
+    // Create or read file
+    std::ofstream file = w_create_file();
+    // Write contact info in file
+    file << '\n'
+         << *tmp->getName() << '\n'
+         << *tmp->getSurname() << '\n'
+         << tmp->getPhone_Number() << '\n';
+    // Clear buffer
+    file.flush();
+    file.close();
 }
 
+/**
+ * @brief Add base in new list(or old one)
+ *
+ * @param info - contact
+ */
 void Base::add_contact(Contact *info)
 {
     array.push_back(info);
@@ -122,20 +148,20 @@ void Base::change_contact()
 
 /**
  * @brief Sort base by alphabet
- * 
+ *
  * @return Base - sorted base
  */
 Base Base::print_contact_by_alp()
 {
     system("clear");
-    // Sort by a to z 
+    // Sort by a to z
     Contact *tmp;
     for (auto &i : array)
     {
-        std::string* source = new std::string(*(i->getSurname()));
+        std::string *source = new std::string(*(i->getSurname()));
         for (auto &j : array)
         {
-            std::string* compared = new std::string(*(j->getSurname()));           
+            std::string *compared = new std::string(*(j->getSurname()));
             if (source->compare(*compared) < 0)
             {
                 tmp = i;
@@ -200,17 +226,18 @@ Base Base::print_contact_by_num()
 
 /**
  * @brief Find surname in base
- * 
+ *
  */
 void Base::find_contact_by_surname()
 {
     std::string p_surname;
     cout << "Surname to search\n>> ";
     cin >> p_surname;
-    for (auto &i : array){
-        std::string* temp = new std::string(*(i->getSurname()));
-        // Compare 2 strings 
-        // If equal = 0 
+    for (auto &i : array)
+    {
+        std::string *temp = new std::string(*(i->getSurname()));
+        // Compare 2 strings
+        // If equal = 0
         if (!temp->compare(p_surname))
         {
             delete temp;
@@ -225,7 +252,7 @@ void Base::find_contact_by_surname()
 
 /**
  * @brief Find number in base
- * 
+ *
  */
 void Base::find_contact_by_pnumber()
 {
@@ -242,4 +269,81 @@ void Base::find_contact_by_pnumber()
             break;
         }
     }
+}
+
+/**
+ * @brief Create or open txt file
+ * - add all contacts in file(after their adding)
+ */
+void Base::write_file()
+{
+    std::ofstream file = w_create_file();
+    for (auto &i : array)
+    {
+        file << '\n';
+        file << *i->getName() << '\n'
+             << *i->getSurname() << '\n'
+             << i->getPhone_Number() << '\n';
+    }
+    file.flush();
+    file.close();
+}
+
+/**
+ * @brief Read txt file
+ *
+ * @return std::ifstream
+ */
+std::ifstream Base::r_create_file()
+{
+    std::ifstream file("Base.txt");
+    if (!file.is_open())
+    {
+        cout << "Failed to open file\n";
+    }
+    else
+    {
+        return file;
+    }
+}
+
+/**
+ * @brief Read file
+ *
+ */
+void Base::read_file()
+{
+    std::ifstream file = r_create_file();
+    std::string string;
+    // String counter
+    size_t counter = 0;
+    while (!file.eof())
+    {
+        // Some paint
+        if (counter > 3)
+        {
+            counter = 0;
+        }
+        // Get string from file
+        std::getline(file, string);
+        if (counter == 1)
+        {
+            cout << "\tName: " << string;
+        }
+        else if (counter == 2)
+        {
+            cout << "\tSurname: " << string;
+        }
+        else if (counter == 3)
+        {
+            cout << "\n\tPhone number: " << string;
+        }
+        else
+        {
+            cout << string;
+            cout << "\n\t-------------------------------\n";
+        }
+        counter++;
+    }
+    file.close();
 }
