@@ -144,6 +144,20 @@ void Contact::change_info()
 }
 
 /**
+ * @brief Output list
+ * 
+ * @param out - source like "cout"
+ * @param tmp - contact 
+ * @return std::ostream& 
+ */
+std::ostream &operator<<(std::ostream &out, const Contact &tmp)
+{
+    return out << "\tName: " << *tmp.name
+               << "\tSurname: " << *tmp.surname
+               << "\n\tPhone number: " << tmp.phone_number << '\n';
+}
+
+/**
  * @brief Destroy the Contact:: Contact object
  *
  */
