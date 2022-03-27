@@ -3,9 +3,15 @@
 
 using std::cout;
 
-class A_function
+struct A_function
 {
-public:
+    /**
+     * @brief Initialize array
+     *
+     * @tparam type
+     * @param array - any array
+     * @param size  - size of array
+     */
     template <typename type>
     void Init(type array[], int size)
     {
@@ -18,6 +24,13 @@ public:
         }
     }
 
+    /**
+     * @brief Reverse array
+     *
+     * @tparam type
+     * @param array - any array
+     * @param size  - size of array
+     */
     template <typename type>
     void Reverse(type array[], int size)
     {
@@ -31,6 +44,13 @@ public:
         }
     }
 
+    /**
+     * @brief Print array
+     *
+     * @tparam type
+     * @param array - any array
+     * @param size  - size of array
+     */
     template <typename type>
     void Print(type array[], int size)
     {
